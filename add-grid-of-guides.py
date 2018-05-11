@@ -33,9 +33,9 @@ for y in range(0, UPM, gridSize):
 for guide in g.guides:
     # prevent vertical guides from being far more "magnetic"
     if guide.angle == 90:
-        guide.magnetic = 10
+        guide.magnetic = 0
     else:
-        guide.magnetic = 10
+        guide.magnetic = 0
     
     
     
