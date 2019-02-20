@@ -7,7 +7,7 @@ from mojo.UI import AskString
 f = CurrentFont()
 
 # get currently selected glyphs as a list
-glyphsToCopy = f.selection
+glyphsToCopy = f.selectedGlyphNames
 
 # ask user for a suffix to add to duplicated glyphs
 newGlyphSuffix = AskString('Enter a new suffix for duplicate glyphs, e.g. "alt1"')
