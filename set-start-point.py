@@ -1,29 +1,31 @@
+# NOTE: you can also create a hotkey for this under Preferences > Glyph View > Hot Keys > Set Start Point
 
-# NOT YET WORKING
+glyph = CurrentGlyph()
 
-f = CurrentFont()
-g= CurrentGlyph()
+# startSegment = 1
 
-help(g)
+# for contour in glyph:
+#     for segment in contour:
+#         for point in segment:
+#             if point.selected == True:
+#                 startSegment = segment.index
+#                 print(startSegment)
+#             # check if startSegment was set
+#             if 'startSegment' in vars():
+#                 contour.setStartSegment(startSegment+1)
+                
+glyph = CurrentGlyph()
 
-startSegment = 1
-
-for c in g:
-    # print(c)
-    for s in c:
-        # print(s)
-        for a in s:
-            if a.selected == True:
-                # print(a)
-                help(a)
-                print(a.x)
-                a
-                startSegment = s.index
-                print(startSegment)
-        # if c is the current contour
-        if 'startSegment':in vars()
-            c._setStartSegment(startSegment)
-        # help(c._setStartSegment)
-
-# g._setStartSegment(startSegment)
-g.contours._setStartSegment(startSegment)
+if len(glyph.selectedPoints) == 1:
+    for contour in glyph:
+        for segment in contour:
+            for point in segment:
+                if point.selected == True:
+                    print(segment.index + 1)
+                    print(len(contour))
+                    print((segment.index + 1) % len(contour) )
+                    startSegment = (segment.index + 1) % len(contour) 
+                    contour.setStartSegment(startSegment)
+                    point.selected = False
+else:
+    print('please select one point!')
