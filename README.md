@@ -1,14 +1,14 @@
-# robofont-drawing-helpers
+# RoboFont Drawing Helper Scripts
 
-A few random drawing helpers I'm working on for RoboFont
+A few random drawing helpers I'm working on for RoboFont, to assist with repetitive tasks in my drawing workflow.
 
-**Making extra shortkey combos**
+**But first: an easier way to create new shortkey combos**
 
 It is always tricky to find simple, new shortcut key combos that aren't yet used. You can make this much easier by converting your `caps lock` key into a "hyper" key – `ctrl+optn+cmmd+shft`, all at once. Use this guide to set it up, if that's appealing to you:
 
 https://brettterpstra.com/2017/06/15/a-hyper-key-with-karabiner-elements-full-instructions/
 
-## `add-sloped-grid-of-guides.py`
+### `add-sloped-grid-of-guides.py`
 
 Use this to add a grid of guides. If you have set an italic angle in a UFO, the guides will follow it.
 
@@ -33,7 +33,7 @@ for guide in g.guides:
         guide.magnetic = 10
 ```
 
-## `remove-selected-glyphs-from-font.py`
+### `remove-selected-glyphs-from-font.py`
 
 For some reason, it is weirdly hard to _really_ remove glyphs from a UFO, with RoboFont.
 
@@ -41,7 +41,7 @@ This script removes selected glyphs from the `glyphs` folder, from glyphOrder, k
 
 I have it setup to `ctrl+optn+cmmd+shft+delete`
 
-## `duplicate-selected-glyphs-w_new_suffix.py` and `make-selected-alt_glyphs-default.py`
+### `duplicate-selected-glyphs-w_new_suffix.py` and `make-selected-alt_glyphs-default.py`
 
 One of the simplest and most effective ways to experiment with different glyphs is to quickly make alternates.
 
@@ -56,7 +56,7 @@ Caveat: the `make default` script messes with the glyph order in the UFO a bit. 
 I have the `duplicate` script setup to `ctrl+optn+cmmd+shft+J` (like the "copy layer" shortcut in Photoshop).
 I have the `make default` script setup to `ctrl+optn+cmmd+shft+H` (the key next to `J`).
 
-## `duplicate-sel_glyphs-w_suffix-all_fonts.py`
+### `duplicate-sel_glyphs-w_suffix-all_fonts.py`
 
 This duplicates a glyph with a suffix in all open fonts.
 
