@@ -24,4 +24,4 @@ rgbaColor = RGBAfromHex(hexColor)
 
 for font in fonts:
     for glyphName in glyphsToUpdate:
-        f[glyphName].markColor = rgbaColor
+        font[glyphName].markColor = rgbaColor
