@@ -42,8 +42,7 @@ for selectedGlyph in f.selectedGlyphNames:
                 f.removeGlyph(selectedGlyph)
             
             # the new default is at the end, so this will re-apply a "smart sort" to the font
-            font = CurrentFont()
-            newGlyphOrder = font.naked().unicodeData.sortGlyphNames(font.glyphOrder, sortDescriptors=[dict(type="cannedDesign", ascending=True, allowPseudoUnicode=True)])
-            font.glyphOrder = newGlyphOrder
+            newGlyphOrder = f.naked().unicodeData.sortGlyphNames(f.templateGlyphOrder, sortDescriptors=[dict(type="cannedDesign", ascending=True, allowPseudoUnicode=True)])
+            f.templateGlyphOrder = newGlyphOrder
     else:
         print("sorry, '" + selectedGlyph + "' is already a default (non-suffixed) glyph")
