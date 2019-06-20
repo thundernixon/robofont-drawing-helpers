@@ -3,8 +3,10 @@
 import datetime
 
 f = CurrentFont()
+
+glyphsToCopy = f.selectedGlyphNames
     
-for selectedGlyph in f.selectedGlyphNames:
+for selectedGlyph in glyphsToCopy:
     
     splitAltGlyphName = f[selectedGlyph].name.split('.')
 
