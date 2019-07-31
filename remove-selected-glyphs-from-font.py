@@ -1,3 +1,10 @@
+from vanilla.dialogs import *
+import os
+from mojo.UI import AskString
+
+# glyphsToRemoveString = AskString('space-separated list of glyphs to remove')
+# glyphsToRemove = glyphsToRemoveString.split(" ")
+
 f = CurrentFont()
 
 # copy space-separated glyph names here
@@ -6,14 +13,25 @@ glyphsToRemove = list(f.selectedGlyphNames)
 # FONT KEYs -----------------------------------------------
 
 # clean up the rest of the data
-for glyphToRemove in glyphsToRemove:
+for glyphName in glyphsToRemove:
     # remove from keys
     # if glyphToRemove in f.keys():
-    if glyphToRemove in f:
-        del f[glyphToRemove]
+    if glyphName in f:
+        del f[glyphName]
     else:
         print("font does not contain a glyph named '%s'" % glyphName)
-        
+
+# LAYERS --------------------------------------------------
+
+for layerName in f.layerOrder:
+    layer = f.getLayer(layerName)
+    for glyphToRemove in glyphsToRemove:
+        if glyphToRemove in layer:
+            del layer[glyphToRemove]
+        else:
+            print("%s does not contain a glyph named '%s'" %
+                  (layerName, glyphToRemove))
+
 
 # GLYPH ORDER ---------------------------------------------
 
@@ -27,15 +45,15 @@ f.glyphOrder = glyphOrder
 
 # KERNING -----------------------------------------------------------
 
-for glyphToRemove in glyphsToRemove:
+for glyphName in glyphsToRemove:
     # iterate over all kerning pairs in the font
     for kerningPair in f.kerning.keys():
 
         # if glyph is in the kerning pair, remove it
-        if glyphToRemove in kerningPair:
+        if glyphName in kerningPair:
             print('removing kerning pair (%s, %s)...' % kerningPair)
             del f.kerning[kerningPair]
-            
+
 # COMPONENTS -------------------------------------------------------
 
 # iterate over all glyphs in the font
@@ -52,4 +70,3 @@ for glyph in f:
         if component.baseGlyph in glyphsToRemove:
             # delete the component
             glyph.removeComponent(component)
-
