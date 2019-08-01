@@ -2,13 +2,13 @@ from vanilla.dialogs import *
 import os
 from mojo.UI import AskString
 
-# glyphsToRemoveString = AskString('space-separated list of glyphs to remove')
-# glyphsToRemove = glyphsToRemoveString.split(" ")
+glyphsToRemoveString = AskString('space-separated list of glyphs to remove from current font')
+glyphsToRemove = glyphsToRemoveString.split(" ")
 
 f = CurrentFont()
 
 # copy space-separated glyph names here
-glyphsToRemove = list(f.selectedGlyphNames)
+# glyphsToRemove = list(f.selectedGlyphNames)
 
 # FONT KEYs -----------------------------------------------
 
